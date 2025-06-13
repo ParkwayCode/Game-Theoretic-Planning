@@ -121,34 +121,31 @@ The interaction-aware planning problem is formulated as a **Partially Observable
 - **Observation Space (O):**
   The observations include the positions of all vehicles. The ego vehicle can perfectly observe the positions but has no direct observation of the human drivers' internal reasoning states $k$ and $\lambda$.
 
-
 # Experiments
-- Explain environment: Straight Street with two lanes. Human agents can be modeled with IDM. To simulate defensive or aggresive drivers, I have introduced a yield area of the side of the car (also in front) which let the driver yield [look at paper 10]. The algorithm is tested in various scenarios. Perform Lane Change with different driving styles and perform LC with many human agents. Second experiment is forcing a lane change or overtaking an obstacle/slow car in front of the ego Car
 
 ## Experiment 1: Lane Change
-### Calm Driver
-- Setup: 
-- Result: Belief of the hidden state
-- Observation:
-  ![Simulation](experiment1/animation_calm1.gif)
-### Aggresive Driver
-- Setup:
-- Result: Belief of the hidden state
-- Observation:
-  ![Simulation](experiment1/animation_agg1.gif)
+### Calm Driver  
+Ego signals, human yields, lane change succeeds smoothly.
 
-## Experiment 2: Lane Change with multiple Drivers
-- Setup:
-- Result: Belief of the hidden state
-- Observation:
+  ![Simulation](animations/animation_calm.gif)
 
+### Aggressive Driver  
+Ego yields first, lets human pass, then merges safely.
 
+  ![Simulation](animations/animation_Agg.gif)
+
+## Experiment 2: Lane Change with Multiple Drivers
+Ego focuses on two key cars in the jam and merges successfully in all traffic-style combinations.
+
+![Simulation](animations/animationMultiple_sim01.gif)
+![Simulation](animations/animationMultiple_sim02.gif)
+![Simulation](animations/animationMultiple_sim03.gif)
 
 ## Experiment 3: Forced Lane Change / Overtaking
-- Setup: 
-- Result: Belief of the hidden state
-- Observation:
-  ![Simulation](experiment2/animation.gif)
+Ego slows behind a slow obstacle, overtakes, and returns to the original lane without collision.
+
+- Observation:  
+  ![Simulation](animations/animation_forced.gif)
 
 
 # Bibliography
